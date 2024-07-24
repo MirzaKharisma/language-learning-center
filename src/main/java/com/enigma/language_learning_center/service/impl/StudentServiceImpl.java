@@ -26,6 +26,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public Student getByIdToTransaction(String id) {
+        return findByIdOrThrow(id);
+    }
+
+    @Override
     public StudentResponse create(StudentRequest request) {
         Student student = Student.builder()
                 .name(request.getName())
@@ -33,7 +38,7 @@ public class StudentServiceImpl implements StudentService {
                 .email(request.getEmail())
                 .phone(request.getPhone())
                 .build();
-        return convertToStudentResponse(student);
+        return convertToStudentResponse(studentRepository.saveAndFlush(student));
     }
 
     @Override
@@ -60,6 +65,7 @@ public class StudentServiceImpl implements StudentService {
         return StudentResponse.builder()
                 .id(student.getId())
                 .name(student.getName())
+                .address(student.getAddress())
                 .email(student.getEmail())
                 .phone(student.getPhone())
                 .build();

@@ -48,6 +48,7 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
+    @Transactional
     public void delete(Student student) {
         entityManager.remove(student);
     }

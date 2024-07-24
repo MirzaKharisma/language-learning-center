@@ -30,6 +30,11 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
+    public Lesson getByIdToTransactional(String id) {
+        return findLessonByIdOrThrowException(id);
+    }
+
+    @Override
     public LessonResponse create(LessonRequest request) {
         Lesson lesson = Lesson.builder()
                 .title(request.getTitle())

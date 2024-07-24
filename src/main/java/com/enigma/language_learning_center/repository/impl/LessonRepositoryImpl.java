@@ -47,6 +47,7 @@ public class LessonRepositoryImpl implements LessonRepository {
     }
 
     @Override
+    @Transactional
     public void delete(Lesson lesson) {
         entityManager.remove(lesson);
     }

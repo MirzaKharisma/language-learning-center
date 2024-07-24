@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class TransactionRequest {
-    private String customerId;
+    private String studentId;
     private List<TransactionDetailRequest> transactionDetails;
 }

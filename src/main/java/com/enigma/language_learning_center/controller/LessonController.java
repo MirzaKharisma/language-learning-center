@@ -67,7 +67,7 @@ public class LessonController {
         lessonService.delete(id);
         CommonResponse<?> commonResponse = CommonResponse.builder()
                 .statusCode(HttpStatus.OK.value())
-                .message("Student deleted successfully")
+                .message("Lesson deleted successfully")
                 .data(Optional.empty())
                 .build();
         return ResponseEntity.status(HttpStatus.OK).body(commonResponse);

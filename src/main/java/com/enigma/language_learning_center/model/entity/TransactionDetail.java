@@ -18,7 +18,7 @@ public class TransactionDetail {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "transaction_id")
     @JsonIgnore
     private Transaction transaction;
